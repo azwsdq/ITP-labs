@@ -84,5 +84,24 @@ class CourseToolkitTest {
     @Test
     void returnErrMsgIfNull() {
         assertThrows(IllegalArgumentException.class, () -> CourseToolkit.isPalindrome(null));
+        assertThrows(IllegalArgumentException.class, () -> CourseToolkit.average(null));
+    }
+
+    /**
+     * average
+     */
+
+    @Test
+    void defaultScene() {
+        double result = CourseToolkit.average(new int[] {1, 2, 3, 4, 5});
+
+        assertEquals(3, result);
+    }
+
+    @Test
+    void NegativeScene() {
+        double result = CourseToolkit.average(new int[] {1, -2, 3, -4, -5});
+
+        assertEquals(-1.4, result);
     }
 }
