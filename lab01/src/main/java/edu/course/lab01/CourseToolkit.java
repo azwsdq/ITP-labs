@@ -15,4 +15,23 @@ public final class CourseToolkit {
     public static boolean isEven(int number) {
         return number % 2 == 0;
     }
+
+    /**
+     * Возвращает true, если число простое
+     */
+
+    public static boolean isPrime(int number) {
+        if (number < 2) {
+            return false;
+        }
+        if (number == 2) {
+            return true;
+        }
+        for (int i=3; i * i <= number; i += 2) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
