@@ -1,5 +1,7 @@
 package edu.course.lab01;
 
+import java.util.Arrays;
+
 /**
  * Небольшие методы для первой лабораторной работы.
  */
@@ -54,5 +56,18 @@ public final class CourseToolkit {
             right--;
         }
         return true;
+    }
+
+    /**
+     * Возвращает среднее значение масива
+     */
+
+    public static double average(int[] values) {
+        if (values == null) {
+            throw new IllegalArgumentException("IllegalArgumentException");
+        }
+        double sum = Arrays.stream(values).sum();
+        double len = Arrays.stream(values).count();
+        return sum / len;
     }
 }
