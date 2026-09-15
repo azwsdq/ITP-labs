@@ -46,7 +46,7 @@ class CourseToolkitTest {
     void returnFalseForNegativeNumber() {
         boolean result = CourseToolkit.isPrime(-13);
 
-        assertTrue(result);
+        assertFalse(result);
     }
 
     @Test
@@ -81,10 +81,15 @@ class CourseToolkitTest {
         assertFalse(result);
     }
 
+    /**
+     * Ошибочные сообщения
+     */
     @Test
     void returnErrMsgIfNull() {
         assertThrows(IllegalArgumentException.class, () -> CourseToolkit.isPalindrome(null));
         assertThrows(IllegalArgumentException.class, () -> CourseToolkit.average(null));
+        assertThrows(IllegalArgumentException.class, () -> CourseToolkit.min(null));
+        assertThrows(IllegalArgumentException.class, () -> CourseToolkit.max(null));
     }
 
     /**
@@ -103,5 +108,23 @@ class CourseToolkitTest {
         double result = CourseToolkit.average(new int[] {1, -2, 3, -4, -5});
 
         assertEquals(-1.4, result);
+    }
+
+    /**
+     * Min and Max
+     */
+
+    @Test
+    void returnMinOfArray() {
+        int result = CourseToolkit.min(new int[] {1, 2, -3, 4, 5});
+
+        assertEquals(-3, result);
+    }
+
+    @Test
+    void returnMaxOfArray() {
+        int result = CourseToolkit.max(new int[] {-1, -3, -9, -2, -5});
+
+        assertEquals(-1, result);
     }
 }
