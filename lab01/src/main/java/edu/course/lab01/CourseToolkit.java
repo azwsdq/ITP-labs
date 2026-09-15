@@ -70,4 +70,35 @@ public final class CourseToolkit {
         double len = Arrays.stream(values).count();
         return sum / len;
     }
+    public static int min(int[] values) {
+        if (values == null) {
+            throw new IllegalArgumentException("IllegalArgumentException");
+        }
+
+        int minimum = values[0];
+
+        for (int i = 1; i < values.length; i++) {
+            if (values[i] < minimum) {
+                minimum = values[i];
+            }
+        }
+
+        return minimum;
+    }
+
+    public static int max(int[] values) {
+        if (values == null) {
+            throw new IllegalArgumentException("IllegalArgumentException");
+        }
+
+        int maximum = values[0];
+
+        for (int i = 1; i < values.length; i++) {
+            if (values[i] > maximum) {
+                maximum = values[i];
+            }
+        }
+
+        return maximum;
+    }
 }
