@@ -35,5 +35,27 @@ public class BankAccountTest {
                 () -> balance.deposit(-1));
     }
 
+    @Test
+    void withdrawReducesBalance() {
+        BankAccount balance = new BankAccount(100);
+        balance.withdraw(20);
+
+        assertEquals(80, balance.getBalance());
+    }
+
+    @Test
+    void withdrawRejectsNonPositiveAmount() {
+        BankAccount balance = new BankAccount(100);
+        assertThrows(IllegalArgumentException.class,
+                () -> balance.withdraw(-20));
+    }
+
+    @Test
+    void withdrawRejectsAmountGreaterThanBalance() {
+        BankAccount balance = new BankAccount(100);
+        assertThrows(IllegalArgumentException.class,
+                () -> balance.withdraw(120));
+    }
+
 
 }
