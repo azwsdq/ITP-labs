@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class BankAccountTest {
     @Test
-    void returnFalseIfBalanceIsNegative() {
+    void returnExceptionIfBalanceIsNegative() {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> new BankAccount(-1));
@@ -17,6 +17,22 @@ public class BankAccountTest {
         BankAccount balance = new BankAccount(0);
 
         assertEquals(0, balance.getBalance());
+    }
+
+    @Test
+    void addDeposit50() {
+        BankAccount balance = new BankAccount(0);
+        balance.deposit(50);
+
+        assertEquals(50, balance.getBalance());
+    }
+
+    @Test
+    void depositRejectsNonPositiveAmount() {
+        BankAccount balance = new BankAccount(100);
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> balance.deposit(-1));
     }
 
 
