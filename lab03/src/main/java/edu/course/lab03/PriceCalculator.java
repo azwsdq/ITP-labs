@@ -11,3 +11,4 @@ public class PriceCalculator {
         return policy.apply(price);
     }
 }
+
