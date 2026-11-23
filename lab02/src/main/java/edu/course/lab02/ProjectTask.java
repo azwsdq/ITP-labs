@@ -8,7 +8,6 @@ public class ProjectTask {
 
 
     public ProjectTask(String id, String title, TaskStatus status, int estimatedHours) {
-
         if (id == null || id.isBlank()
                 || title == null || title.isBlank()
                 || status == null
